@@ -8,7 +8,7 @@ public class SnakeAndLadder {
 
 
     public static void main(String[] args) {
-        int pos = 0,count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+        int pos = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
         System.out.println("Starting position of player is: " + START);
 
         while (pos < 100) {
@@ -24,26 +24,24 @@ public class SnakeAndLadder {
                     break;
                 case LADDER:
                     pos = pos + roll;
-                    if(pos <= 100)
-                    System.out.println("New Position is: " + pos);
-                else{
-                    pos = pos - roll;
-                    System.out.println("Remains at same position: " + pos);
-                }
-                count2++;
+                    if (pos <= 100)
+                        System.out.println("New Position is: " + pos);
+                    else {
+                        pos = pos - roll;
+                        System.out.println("Remains at same position: " + pos);
+                    }
+                    count2++;
                     break;
                 case SNAKE:
                     pos = pos - roll;
-                    if (pos <= 100){
-                        if (pos >= 0 ){
+                    if (pos <= 100) {
+                        if (pos >= 0) {
                             System.out.println("New Position is: " + pos);
-                        }
-                        else{
+                        } else {
                             pos = 0;
                             System.out.println("New Position is: " + pos);
                         }
-                    }
-                    else{
+                    } else {
                         System.out.println("New position is:" + pos);
                     }
                     count3++;
@@ -53,12 +51,11 @@ public class SnakeAndLadder {
                     break;
             }
         }
-        System.out.println("Player ROLLED DICE "+count1+" time and got SNAKE "+count3+" times and got LADDER "+count2+" times and got NO PLAY "+count4+" times to win the game");
-        if (pos >= 100)
-            System.out.println("-------------------");
-        System.out.println("    PLAYER WON");
-        System.out.println("-------------------");
+        System.out.println("Player ROLLED DICE " + count1 + " time and got SNAKE " + count3 + " times and got LADDER " + count2 + " times and got NO PLAY " + count4 + " times to win the game");
+        if (pos == 100) {
+            System.out.println("--------------------");
+            System.out.println("    PLAYER WON");
+            System.out.println("--------------------");
+        }
     }
 }
-
-
