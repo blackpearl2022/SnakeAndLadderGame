@@ -7,32 +7,41 @@ public class SnakeAndLadder {
     public static final int START = 0;
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int pos = 0;
         System.out.println("Starting position of player is: " + START);
-        int roll = (int) (Math.floor(Math.random() * 10) % 6 + 1);
-        System.out.println("Number on rolled dice is : " +roll);
-        int condition = (int) (Math.floor(Math.random() * 10) % 3);
-        System.out.println("Condition: " +condition);
-        switch (condition){
-            case NO_PLAY:
-                System.out.println("New Position is: " + pos);
-                break;
-            case LADDER:
-                pos = pos + roll;
-                System.out.println("New Position is: " + pos);
-                break;
-            case SNAKE:
-                pos = pos - roll;
-                if ( pos >= 0)
+
+        while (pos <= 100) {
+            int roll = (int) (Math.floor(Math.random() * 10) % 6 + 1);
+            System.out.println("Number on rolled dice is : " + roll);
+            int condition = (int) (Math.floor(Math.random() * 10) % 3);
+            System.out.println("Condition: " + condition);
+            switch (condition) {
+                case NO_PLAY:
                     System.out.println("New Position is: " + pos);
-                else
-                    pos = 0;
-                System.out.println("New Position is: " + pos);
-                break;
-            default:
-                System.out.println("Default");
-                break;
+                    break;
+                case LADDER:
+                    pos = pos + roll;
+                    System.out.println("New Position is: " + pos);
+                    break;
+                case SNAKE:
+                    pos = pos - roll;
+                    if (pos >= 0)
+                        System.out.println("New Position is: " + pos);
+                    else
+                        pos = 0;
+                    System.out.println("New Position is: " + pos);
+                    break;
+                default:
+                    System.out.println("Default");
+                    break;
+            }
         }
+        if (pos >= 100)
+            System.out.println("-------------------");
+        System.out.println("    PLAYER WON");
+        System.out.println("-------------------");
     }
-    }
+}
+
+
