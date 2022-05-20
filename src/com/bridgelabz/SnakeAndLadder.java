@@ -11,7 +11,7 @@ public class SnakeAndLadder {
         int pos = 0;
         System.out.println("Starting position of player is: " + START);
 
-        while (pos <= 100) {
+        while (pos < 100) {
             int roll = (int) (Math.floor(Math.random() * 10) % 6 + 1);
             System.out.println("Number on rolled dice is : " + roll);
             int condition = (int) (Math.floor(Math.random() * 10) % 3);
@@ -22,15 +22,27 @@ public class SnakeAndLadder {
                     break;
                 case LADDER:
                     pos = pos + roll;
+                    if(pos <= 100)
                     System.out.println("New Position is: " + pos);
+                else{
+                    pos = pos - roll;
+                    System.out.println("Remains at same position: " + pos);
+                }
                     break;
                 case SNAKE:
                     pos = pos - roll;
-                    if (pos >= 0)
-                        System.out.println("New Position is: " + pos);
-                    else
-                        pos = 0;
-                    System.out.println("New Position is: " + pos);
+                    if (pos <= 100){
+                        if (pos >= 0 ){
+                            System.out.println("New Position is: " + pos);
+                        }
+                        else{
+                            pos = 0;
+                            System.out.println("New Position is: " + pos);
+                        }
+                    }
+                    else{
+                        System.out.println("New position is:" + pos);
+                    }
                     break;
                 default:
                     System.out.println("Default");
